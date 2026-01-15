@@ -24,13 +24,25 @@ export const { handlers, signIn, signOut, auth } = NextAuth({
 
         // Example: mock user
         if (
-          credentials.email === "test@mail.com" &&
+          credentials.email === "staff@mail.com" &&
           credentials.password === "1234"
         ) {
           return {
-            id: "1",
-            name: "Test User",
-            email: "test@mail.com",
+            id: "1000",
+            name: "Staff",
+            email: "staff@mail.com",
+            role: "admin",
+          }
+        }
+
+        if (
+          credentials.email === "admin@mail.com" &&
+          credentials.password === "1234"
+        ) {
+          return {
+            id: "1101",
+            name: "Admin",
+            email: "admin@mail.com",
             role: "admin",
           }
         }
