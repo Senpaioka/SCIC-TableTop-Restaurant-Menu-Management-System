@@ -1,36 +1,69 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# TableTop - Restaurant Menu Management System
 
-## Getting Started
+A full-featured restaurant menu management system built with Next.js 16, TypeScript, Auth.js, and Tailwind/shadcn/UI, featuring role-based authentication for admin, staff, and customers.
 
-First, run the development server:
+Preview: https://scic-table-top-restaurant-menu-mana.vercel.app
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+## Features
+
+- Role-based authentication: Admin, Staff, Customer
+- Admin dashboard to manage menu items (add, delete, update)
+- Staff dashboard (optional) for staff-related operations
+- Customer menu view to browse dishes
+
+Menu item management:
+
+- Dish name, description, price, category, ingredients, and image URL
+Protected routes:
+- /dashboard accessible only to admin & staff
+- /unauthorized for restricted access
+
+- Responsive design using Tailwind CSS & Shadcn/UI
+- Mock authentication for quick testing (admin, staff, customer)
+
+## Credentials (Mock Authentication)
+- Admin Login
+```
+email: admin@mail.com
+password: 1234
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+- Staff Login
+```
+email: staff@mail.com
+password: 1234
+```
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+- Customer Login
+```
+email: customer@mail.com
+password: 1234
+```
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## Tech Stack
+- Next.js 16 (App Router)
+- TypeScript
+- Auth.js (Credentials providers)
+- Tailwind CSS & Shadcn/UI for styling
+- Lucide React for icons
 
-## Learn More
 
-To learn more about Next.js, take a look at the following resources:
+## Installation
+- Clone the repository:
+```bash
+git clone https://github.com/...
+cd <Project file>
+```
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+- Install dependencies:
+```bash
+npm install
+```
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+## Environment Variables
+- Create a .env.local file in the root directory with:
+```
+# NextAuth
+NEXT_AUTH_SECRET=your_random_secret_key
+```
 
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
