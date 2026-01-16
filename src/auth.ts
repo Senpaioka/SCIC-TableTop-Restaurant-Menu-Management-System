@@ -28,7 +28,7 @@ export const { handlers, signIn, signOut, auth } = NextAuth({
           credentials.password === "1234"
         ) {
           return {
-            id: "1000",
+            id: 1000,
             name: "Staff",
             email: "staff@mail.com",
             role: "staff",
@@ -40,7 +40,7 @@ export const { handlers, signIn, signOut, auth } = NextAuth({
           credentials.password === "1234"
         ) {
           return {
-            id: "1101",
+            id: 1101,
             name: "Admin",
             email: "admin@mail.com",
             role: "admin",
@@ -52,7 +52,7 @@ export const { handlers, signIn, signOut, auth } = NextAuth({
           credentials.password === "1234"
         ) {
           return {
-            id: "1102",
+            id: 1102,
             name: "Customer",
             email: "customer@mail.com",
             role: "customer",
