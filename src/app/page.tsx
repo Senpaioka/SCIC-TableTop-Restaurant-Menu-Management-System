@@ -32,7 +32,7 @@ export default function HomePage() {
             </div>
           </div>
 
-          <div className="flex-1 w-full max-w-[500px] z-10 relative aspect-square">
+          <div className="flex-1 w-full max-w-125 z-10 relative aspect-square">
             <Image
               src="https://images.unsplash.com/photo-1592861956120-e524fc739696?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
               alt="Delicious Dish"
@@ -44,7 +44,7 @@ export default function HomePage() {
 
           
           {/* Decorative background element */}
-          <div className="absolute top-1/2 right-0 -translate-y-1/2 translate-x-1/4 w-[500px] h-[500px] bg-primary/5 rounded-full blur-3xl -z-0" />
+          <div className="absolute top-1/2 right-0 -translate-y-1/2 translate-x-1/4 w-125 h-125 bg-primary/5 rounded-full blur-3xl z-0" />
         </div>
       </section>
 
@@ -93,8 +93,14 @@ export default function HomePage() {
             <div className="grid md:grid-cols-3 gap-8">
                 {/* Dish 1 */}
                 <Card className="overflow-hidden border-none shadow-md bg-background hover:shadow-xl transition-all duration-300 group">
-                    <div className="overflow-hidden h-56">
-                        <img src="https://picsum.photos/400/300?random=20" alt="Signature Steak" className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" />
+                    <div className="overflow-hidden h-56 relative">
+                      <Image
+                        src="https://images.unsplash.com/photo-1622115837997-90c89ae689f9?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+                        alt="Signature Steak"
+                        fill
+                        sizes="(max-width: 768px) 100vw, 400px"
+                        className="object-cover group-hover:scale-110 transition-transform duration-700"
+                      />
                     </div>
                     <CardContent className="p-6">
                         <div className="flex justify-between items-start mb-2">
@@ -106,9 +112,16 @@ export default function HomePage() {
                 </Card>
                 {/* Dish 2 */}
                 <Card className="overflow-hidden border-none shadow-md bg-background hover:shadow-xl transition-all duration-300 group">
-                     <div className="overflow-hidden h-56">
-                        <img src="https://picsum.photos/400/300?random=21" alt="Ocean Platter" className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" />
-                     </div>
+                     
+                    <div className="overflow-hidden h-56 relative">
+                      <Image
+                        src="https://images.unsplash.com/photo-1498654896293-37aacf113fd9?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+                        alt="Truffle Pasta"
+                        fill
+                        sizes="(max-width: 768px) 100vw, 400px"
+                        className="object-cover group-hover:scale-110 transition-transform duration-700"
+                      />
+                    </div>
                     <CardContent className="p-6">
                         <div className="flex justify-between items-start mb-2">
                             <h3 className="font-bold text-xl">Ocean Platter</h3>
@@ -119,9 +132,16 @@ export default function HomePage() {
                 </Card>
                  {/* Dish 3 */}
                 <Card className="overflow-hidden border-none shadow-md bg-background hover:shadow-xl transition-all duration-300 group">
-                     <div className="overflow-hidden h-56">
-                        <img src="https://picsum.photos/400/300?random=22" alt="Truffle Pasta" className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" />
-                     </div>
+                     
+                    <div className="overflow-hidden h-56 relative">
+                      <Image
+                        src="https://images.unsplash.com/photo-1414235077428-338989a2e8c0?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+                        alt="Truffle Pasta"
+                        fill
+                        sizes="(max-width: 768px) 100vw, 400px"
+                        className="object-cover group-hover:scale-110 transition-transform duration-700"
+                      />
+                    </div>
                     <CardContent className="p-6">
                          <div className="flex justify-between items-start mb-2">
                             <h3 className="font-bold text-xl">Truffle Pasta</h3>

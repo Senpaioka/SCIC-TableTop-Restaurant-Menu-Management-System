@@ -1,6 +1,6 @@
 import { MenuItem, Category } from '@/types/types';
 
-const STORAGE_KEY = 'gourmet_manager_menu_v1';
+const STORAGE_KEY = 'tabletop_manager_menu_v1';
 
 const INITIAL_MENU: MenuItem[] = [
   {
@@ -9,7 +9,7 @@ const INITIAL_MENU: MenuItem[] = [
     description: 'Creamy arborio rice cooked with wild mushrooms and finished with truffle oil and parmesan.',
     price: 24.00,
     category: Category.MAIN,
-    imageUrl: 'https://picsum.photos/400/300?random=1',
+    imageUrl: 'https://images.unsplash.com/photo-1622115837997-90c89ae689f9?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
     isAvailable: true,
     ingredients: ['Arborio Rice', 'Wild Mushrooms', 'Truffle Oil', 'Parmesan']
   },
@@ -19,7 +19,7 @@ const INITIAL_MENU: MenuItem[] = [
     description: 'Fresh tuna tossed with chili, sesame oil, and avocado, served with crispy wonton chips.',
     price: 18.00,
     category: Category.APPETIZER,
-    imageUrl: 'https://picsum.photos/400/300?random=2',
+    imageUrl: 'https://images.unsplash.com/photo-1414235077428-338989a2e8c0?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
     isAvailable: true,
     ingredients: ['Tuna', 'Chili', 'Sesame Oil', 'Avocado', 'Wonton']
   },
@@ -29,7 +29,7 @@ const INITIAL_MENU: MenuItem[] = [
     description: 'Rich chocolate cake with a gooey molten center, served with vanilla bean ice cream.',
     price: 12.00,
     category: Category.DESSERT,
-    imageUrl: 'https://picsum.photos/400/300?random=3',
+    imageUrl: 'https://images.unsplash.com/photo-1498654896293-37aacf113fd9?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
     isAvailable: true,
     ingredients: ['Dark Chocolate', 'Butter', 'Eggs', 'Sugar', 'Flour']
   }

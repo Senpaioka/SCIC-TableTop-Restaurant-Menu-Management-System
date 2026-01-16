@@ -7,6 +7,8 @@ import { Card, CardContent, CardFooter, CardHeader, CardTitle } from '@/componen
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { X } from 'lucide-react';
+import Image from 'next/image';
+
 
 export default function MenuPage() {
   const [menuItems, setMenuItems] = useState<MenuItem[]>([]);
@@ -29,7 +31,7 @@ export default function MenuPage() {
 
         <div className="flex flex-col items-center text-center space-y-2">
           <h1 className="text-3xl font-bold tracking-tight">Our Menu</h1>
-          <p className="text-muted-foreground max-w-[600px]">
+          <p className="text-muted-foreground max-w-150">
             Explore our diverse selection of dishes, crafted to satisfy every craving.
           </p>
         </div>
@@ -53,10 +55,12 @@ export default function MenuPage() {
           {filteredItems.map((item) => (
             <Card key={item.id} className="overflow-hidden flex flex-col h-full hover:shadow-lg transition-shadow">
               <div className="aspect-video w-full overflow-hidden bg-muted relative">
-                <img 
-                  src={item.imageUrl} 
-                  alt={item.name} 
-                  className="w-full h-full object-cover transition-transform hover:scale-105 duration-500"
+                <Image
+                  src={item.imageUrl}
+                  alt={item.name}
+                  fill
+                  sizes="(max-width: 768px) 100vw, 400px"
+                  className="object-cover transition-transform hover:scale-105 duration-500"
                 />
                 {!item.isAvailable && (
                     <div className="absolute inset-0 bg-black/60 flex items-center justify-center">
@@ -101,13 +105,16 @@ export default function MenuPage() {
               <X className="h-6 w-6" />
             </button>
             
-            <div className="grid md:grid-cols-2 min-h-[500px]">
+            <div className="grid md:grid-cols-2 min-h-125">
               <div className="h-64 md:h-full relative bg-muted">
-                 <img 
-                  src={selectedDish.imageUrl} 
-                  alt={selectedDish.name} 
-                  className="absolute inset-0 w-full h-full object-cover"
-                />
+                  <Image
+                    src={selectedDish.imageUrl}
+                    alt={selectedDish.name}
+                    fill
+                    sizes="(max-width: 768px) 100vw, 600px"
+                    className="object-cover"
+                    priority
+                  />
               </div>
               <div className="p-8 md:p-10 flex flex-col space-y-8">
                 <div>
