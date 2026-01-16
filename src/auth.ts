@@ -31,7 +31,7 @@ export const { handlers, signIn, signOut, auth } = NextAuth({
             id: "1000",
             name: "Staff",
             email: "staff@mail.com",
-            role: "admin",
+            role: "staff",
           }
         }
 
@@ -47,11 +47,38 @@ export const { handlers, signIn, signOut, auth } = NextAuth({
           }
         }
 
+        if (
+          credentials.email === "customer@mail.com" &&
+          credentials.password === "1234"
+        ) {
+          return {
+            id: "1102",
+            name: "Customer",
+            email: "customer@mail.com",
+            role: "customer",
+          }
+        }
+
         return null
       },
     }),
 
   ],
+
+  callbacks: {
+    async session({ session, token }) {
+      if (token.role) {
+        session.user.role = token.role as string
+      }
+      return session
+    },
+    async jwt({ token, user }) {
+      if (user) {
+        token.role = (user as any).role
+      }
+      return token
+    },
+  },
 
   pages: {
     signIn: "/login",

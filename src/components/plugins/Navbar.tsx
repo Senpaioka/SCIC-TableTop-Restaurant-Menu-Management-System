@@ -8,6 +8,11 @@ import { signOut, useSession } from "next-auth/react";
 export default function Navbar() {
   const { data: session, status } = useSession();
 
+  const role = session?.user?.role
+  const isAdminOrStaff = role === "admin" || role === "staff"
+
+
+
   // Prevent flicker while session loads
   if (status === "loading") {
     return (
@@ -41,12 +46,15 @@ export default function Navbar() {
 
           {isAuthenticated ? (
             <>
-              <Link
-                href="/dashboard"
-                className="text-sm font-medium hover:text-primary"
-              >
-                Dashboard
-              </Link>
+              {isAdminOrStaff && (
+                  <Link
+                    href="/dashboard"
+                    className="text-sm font-medium hover:text-primary"
+                  >
+                    Dashboard
+                  </Link>
+                )}
+
 
               <h2 className="text-sm font-medium">@{session.user?.name}</h2>
 

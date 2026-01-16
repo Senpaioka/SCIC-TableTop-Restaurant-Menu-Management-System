@@ -18,7 +18,7 @@ export enum Category {
 
 export interface User {
   id: string;
-  role: 'admin' | 'staff';
+  role: 'admin' | 'staff' | 'customer';
   name: string;
 }
 

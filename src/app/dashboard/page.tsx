@@ -10,11 +10,16 @@ import { Label } from "@/components/ui/label"
 import { Textarea } from "@/components/ui/textarea"
 import { Card, CardHeader, CardTitle, CardContent } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
-import { Spinner } from "@/components/ui/spinner"
+import { Plus, Trash2, ArrowLeft } from "lucide-react"
+import { useSession } from "next-auth/react"
 
-import { Plus, Trash2, Wand2, ArrowLeft } from "lucide-react"
+
 
 export default function AdminPage() {
+
+  const { data: session } = useSession()
+  const isAdmin = session?.user?.role === "admin"
+
   const [items, setItems] = useState<MenuItem[]>([])
   const [showForm, setShowForm] = useState<boolean>(false)
 
@@ -206,13 +211,16 @@ export default function AdminPage() {
                 <Badge>{item.category}</Badge>
               </div>
 
-              <Button
-                variant="ghost"
-                size="icon"
-                onClick={() => handleDelete(item.id)}
-              >
-                <Trash2 className="h-4 w-4" />
-              </Button>
+              {isAdmin && (
+                <Button
+                  variant="ghost"
+                  size="icon"
+                  onClick={() => handleDelete(item.id)}
+                >
+                  <Trash2 className="h-4 w-4" />
+                </Button>
+              )}
+
             </div>
           ))}
         </div>
