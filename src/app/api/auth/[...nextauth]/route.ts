@@ -5,9 +5,9 @@
 // export { handler as GET, handler as POST };
 
 
-import NextAuth from "next-auth"
-import { authOptions } from "@/auth"
-import { NextRequest, NextResponse } from "next/server"
+// import NextAuth from "next-auth"
+// import { authOptions } from "@/auth"
+// import { NextRequest, NextResponse } from "next/server"
 
 // export async function GET(req: NextRequest) {
 //   const res = await NextAuth(authOptions)
@@ -20,5 +20,6 @@ import { NextRequest, NextResponse } from "next/server"
 //   return new NextResponse(res.body, { status: res.status, headers: res.headers })
 // }
 
-export const GET = (req: NextRequest) => NextAuth(authOptions)
-export const POST = (req: NextRequest) => NextAuth(authOptions)
+
+import { handlers } from "@/auth" // Referring to the auth.ts
+export const { GET, POST } = handlers
