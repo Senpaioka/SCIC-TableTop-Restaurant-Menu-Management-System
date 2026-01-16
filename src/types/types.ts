@@ -13,7 +13,7 @@ export enum Category {
   APPETIZER = 'Appetizer',
   MAIN = 'Main Course',
   DESSERT = 'Dessert',
-  DRINK = 'Beverage'
+  BEVERAGE = "Beverage",
 }
 
 export interface User {
