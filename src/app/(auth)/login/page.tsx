@@ -36,7 +36,7 @@ export default function LoginPage() {
     }
 
     // ✅ Login success
-    router.push("/dashboard")
+    router.push("/")
   }
 
   return (
