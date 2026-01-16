@@ -1,29 +1,25 @@
-import { NextRequest, NextResponse } from "next/server";
-import { getToken } from "next-auth/jwt";
+// middleware.ts
+import { auth } from "@/auth";
+import { NextResponse } from "next/server";
 
-const privateRoutes = ["/dashboard"];
+export default auth((req) => {
+  const isLoggedIn = !!req.auth;
+  const role = req.auth?.user?.role;
+  
+  const isProtectedRoute = req.nextUrl.pathname.startsWith("/dashboard");
 
-export async function proxy(req: NextRequest) {
-  const { pathname } = req.nextUrl;
+  if (isProtectedRoute) {
+    if (!isLoggedIn) {
+      return NextResponse.redirect(new URL("/login", req.url));
+    }
 
-  // Get the token and explicitly type it
-  const token = await getToken({
-    req,
-    secret: process.env.SECRET,
-  }) as { role?: string } | null;
-
-  const isLoggedIn = !!token;
-  const role = token?.role;
-
-  // Protect private routes
-  if (privateRoutes.some(route => pathname.startsWith(route))) {
-    if (!isLoggedIn || !["admin", "staff"].includes(role ?? "")) {
+    if (!role || !["admin", "staff"].includes(role)) {
       return NextResponse.redirect(new URL("/unauthorized", req.url));
     }
   }
 
   return NextResponse.next();
-}
+});
 
 export const config = {
   matcher: ["/dashboard/:path*"],
