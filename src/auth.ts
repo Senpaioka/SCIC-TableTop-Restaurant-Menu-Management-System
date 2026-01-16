@@ -133,15 +133,25 @@ export const authOptions = {
 
   callbacks: {
     async session({ session, token }) {
-      session.user.role = token.role as "admin" | "staff" | "customer"
+      const allowedRoles = ["admin", "staff", "customer"] as const
+
+      if (token.role && allowedRoles.includes(token.role as any)) {
+        session.user.role = token.role as typeof allowedRoles[number]
+      }
+
       return session
     },
+
     async jwt({ token, user }) {
-      if (user) token.role = (user as any).role
+      if (user && (user as any).role) {
+        token.role = (user as any).role as "admin" | "staff" | "customer"
+      }
       return token
     },
   },
 
-  pages: { signIn: "/login" },
+  pages: {
+    signIn: "/login",
+  },
 }
 
