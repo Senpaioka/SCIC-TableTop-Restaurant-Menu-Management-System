@@ -67,14 +67,18 @@ export const { handlers, signIn, signOut, auth } = NextAuth({
 
   callbacks: {
     async session({ session, token }) {
-      if (token.role) {
-        session.user.role = token.role as string
+      const allowedRoles = ["admin", "staff", "customer"] as const
+
+      if (token.role && allowedRoles.includes(token.role as any)) {
+        session.user.role = token.role as typeof allowedRoles[number]
       }
+
       return session
     },
+
     async jwt({ token, user }) {
-      if (user) {
-        token.role = (user as any).role
+      if (user && (user as any).role) {
+        token.role = (user as any).role as "admin" | "staff" | "customer"
       }
       return token
     },
