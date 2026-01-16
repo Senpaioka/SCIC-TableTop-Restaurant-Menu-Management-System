@@ -7,13 +7,18 @@
 
 import NextAuth from "next-auth"
 import { authOptions } from "@/auth"
-import type { NextRequest } from "next/server"
+import { NextRequest, NextResponse } from "next/server"
 
-// This wrapper makes NextAuth compatible with App Router
-const handler = async (req: NextRequest) => {
-  return await NextAuth(authOptions) 
-}
+// export async function GET(req: NextRequest) {
+//   const res = await NextAuth(authOptions)
+//   // Convert the NextAuth result into a NextResponse
+//   return new NextResponse(res.body, { status: res.status, headers: res.headers })
+// }
 
-// Export GET and POST correctly
-export const GET = handler
-export const POST = handler
+// export async function POST(req: NextRequest) {
+//   const res = await NextAuth(authOptions)
+//   return new NextResponse(res.body, { status: res.status, headers: res.headers })
+// }
+
+export const GET = (req: NextRequest) => NextAuth(authOptions)
+export const POST = (req: NextRequest) => NextAuth(authOptions)
